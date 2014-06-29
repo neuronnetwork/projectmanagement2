@@ -13,6 +13,7 @@ exports.dbProject = function(utils) {
 		var ts = new Date().getTime();
 		var sql = 'INSERT INTO `' + tableProjects + '` (uid, project_title, user_uid, deleted, created) VALUES ';
 		sql += '(' + uid + ', \"' + utils.mysql_real_escape_string(projecttitle) + '\",' + user_uid + ', false, ' + ts + ')';
+		// TODO: replace with errorLog resp debugLog
 		console.log('insertNewProject: sql' + sql);
 	
 		db.query(sql, deferred.makeNodeResolver());
